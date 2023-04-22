@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/1.2.0/calcite.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://js.arcgis.com/calcite-components/1.2.0/calcite.css"
+    />
+    <style>      
+        :root {
+            --blue: #029bd7;
+            --purple: #564895;
+            --blue-king: #092355;
+            --orange: #ff6600;
+            --hard-blue: #1148a8;
+            --rose: #fe2672;
+            --gray: #b2b3b3;
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px;
+          }
+        .button-container{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+        }
+        .big-button{
+          padding: 20px 500px;
+          cursor: pointer;
+          background-color: var(--blue-king);
+          border: 0;
+          border-radius: 5px;
+        }
+        .big-button:hover{
+          background-color: var(--blue);
+        }
+        .big-button a{
+          font-size: 20px;
+          font-weight: bold;
+          text-decoration: none;
+          color: white;
+        }
+        .row-2{
+          display: flex;
+          width: 1194px;
+          align-items: center;
+          justify-content: space-around;                
+        }
+        .row-2 button{
+          padding: 10px 100px;
+          cursor: pointer;
+          background-color: var(--blue-king);
+          border: 0;
+          border-radius: 5px;
+        }
+        .row-2 button:hover{
+          background-color: var(--blue);
+        }
+        .row-2 button a{
+          font-size: 20px;
+          font-weight: bold;
+          text-decoration: none;
+          color: white;
+        }
+        </style>
+  </head>
+  <body>
+    <div class="button-container">
+        <div class="row-1">
+          <button class="big-button"><a target="_blank" href="https://experience.arcgis.com/experience/847d19ed095b4cd69d279d9502139e0d">GeoVisor</a></button>       
+        </div>
+        <div class="row-2">
+          <button><a href="https://signortedesantander-gobernacindendes.hub.arcgis.com/pages/datosabiertos">Datos</a></button>       
+          <button><a href="https://signortedesantander-gobernacindendes.hub.arcgis.com/pages/geoservicios">GeoServicios</a></button>       
+          <button><a href="https://signortedesantander-gobernacindendes.hub.arcgis.com/pages/mapoteca">Mapoteca</a></button>       
+        </div>
+      </div>
+  </body>
+</html>
