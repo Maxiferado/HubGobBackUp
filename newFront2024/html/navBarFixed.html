@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/2.9.0/calcite.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://js.arcgis.com/calcite-components/2.9.0/calcite.css"
+    />
+    <title>Document</title>
+    <style>
+      :root {
+        --blue: #029bd7;
+        --purple: #564895;
+        --blue-king: #092355;
+        --orange: #ff6600;
+        --hard-blue: #1148a8;
+        --rose: #fe2672;
+        --gray: #b2b3b3;
+        --sm: 14px;
+        --md: 16px;
+        --lg: 18px;
+      }
+      body {
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Quicksand", sans-serif;
+      }
+      nav .top {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 70px;       
+      }
+      nav img {
+        height: 70px;
+        width: 200px;
+      }
+      .navbar-display {
+        display: flex;
+        text-decoration: none;
+        list-style: none;
+        gap: 25px;
+      }
+      .navbar-display li img {
+        height: 35px;
+        width: 35px;
+      }
+      .navbar-right {
+        display: flex;
+        align-items: center;
+      }
+      .navbar-left {
+        display: flex;
+        align-items: center;
+      }
+      .navButtons {
+        list-style: none;
+        text-decoration: none;
+        width: screen;
+        justify-content: center;
+        display: flex;
+        gap: 5px;
+        padding-bottom: 5px;
+      }
+      .navButtons a {
+        text-decoration: none;
+      }
+      .navButtons a :hover {
+        background-color: var(--blue);
+        box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.75);
+      }
+      .buttonNav {
+        width: 5rem;
+        height: 1.2rem;
+        background-color: var(--blue-king);
+        color: white;
+        text-align: center;
+        padding: 3px;
+      }
+      #buttonNavegation{
+        --calcite-color-brand: #092355;
+      }
+      nav .bot{
+        box-shadow: 0 4px 2px -2px var(--gray);
+      }
+    </style>
+  </head>
+  <nav>
+    <div class="top">
+      <img
+        src="https://ago-item-storage.s3.amazonaws.com/6c36fd7bf8434b95bbc6653b30355e56/Logo_gobernaci%C3%B3n.png?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGoaCXVzLWVhc3QtMSJGMEQCIEI3ZdttnWcsvVG0u01HR10To9Sgi5Y3FC8H5Hz0Qo0AAiB6i9q3W5rUHQPk24B43iZh76bt%2Fc6Wrf%2Fw9RdvfZ4chyq7BQjz%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYwNDc1ODEwMjY2NSIMiHITyvNkTRR%2BAWXhKo8FyWZpPiEdWc5eJYKeQvQUFQIe6lsIGvgPsudhTY57U%2BJG3a1kz5yFA0FmwxQ5sTSHsXM37x%2BYl8yOBdMc6VHhYTmpOr4SvTw8eu8mfTokdN69scgzhHpSdb%2BOyvOzj7z9kx3WxPKJM8TWDLkOb9RYBHVDeuTFV7f3RIPA2RwQApGRzchHmgAVfXNnvm8q9zCLCk1Yy7EBo7IzPDhGmIyAa091KvSMoudcEOc8piZqrEsuFjb3fgLvhJUzUTCMqFaNo%2FltmO1dGp88x6H9ILrANmco%2FCUz9Q%2FeRDJQvGFm5NoXt65cVuVyRdxX0qY21wrFu7lytcp7UhODDxCL1PNxYicYiDyj0%2Fs527FBc%2Bg%2FI98J7M4JAX0FsLJyaAUQ8E3xK1qKGHR5sriuzwAyoXF%2F97FSUUkqhxKUFTiuZHbM8mjhT%2Bl44%2FBN9Wi1nniJRAd%2B0J6zwgrtyTJNStAtWS1BSvKDYYR14fCwAHlFAvVYs9uHdy0yHCaE%2Bwm%2BTEwqYp99vLLKkUydwX9zMUFj6tVLbsUm%2B8LvbxDt%2B3mkcvJKuHvgyUK1VI%2Fdr8YjjdEiamECIPOvo%2FzkYLp8ZBUwfhmU4gkNX5gLzwZqqTXLl%2FCa3SSybT3AeoO3ZKsF4%2BW5j%2FqnKW47brCvZvaittWbWsFsDZqi1dFkK5SLPzT81vn0Jz5G1t0SxSpRnikr1PrP4ZbGh5NTN0AwTtu44gcIDS1tyoeFsR666k2b3PrP7YEUjsNcyDABJTGa1TvD0cYDRLy9c0fVYgAxgB%2FIV04CE6RGoXQAYzm1biOif5dJkFJmvqlqzL3QBPBTxw39Sw184CHvxHrmwW8uG4wH8FaSxXLbGIjApORBqMRUtM%2BtF529FTCKlI2zBjqyAZV6645FdC%2F9U%2BRu%2FKbm5ycK2Xe2%2FnIJFA37vCsz73NHNhH5kCjIUvrbMyjQtTQuFl6%2FOyH0zG4mnHMVL8%2FRGn7rOnyjIPDRuZtPpI1QCjLyDdgQ04JcFQ%2Bkcg6yPqddOQSZZOhz7lOhE9HFpnetHkWeOL42Oxl4g4tmniLcPAj8qHgJ5FENVToZ9JsTsOLpgQbGCMQ0qwQ7JYjPYZQBjDPa6%2B8NYrjCkDyfcES3T%2BMFeo0%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240607T182347Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAYZTTEKKE72LWXH7P%2F20240607%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1e30d7142c5f05475fe5a1bc2df7b24c2b721f0492502f4b431902433456708c"
+        alt="logo gobernacion norte de santander"
+        class="menu"
+      />
+
+      <div class="navbar-left">
+        <img
+          src="https://raw.githubusercontent.com/Maxiferado/IconosGObNorteDeSantader/4d8654ca286c5ae7bbc99450a5e87a4afb3bc94c/IconosSvg/unNorteLogo.svg"
+          alt="logo"
+          class="logo"
+        />
+      </div>
+
+      <div class="navbar-right">
+        <ul class="navbar-display">
+          <li class="navbar-email">
+            <a href="https://www.instagram.com/gobernorte"
+              ><img
+                src="https://raw.githubusercontent.com/Maxiferado/IconosGObNorteDeSantader/4d8654ca286c5ae7bbc99450a5e87a4afb3bc94c/IconosSvg/instaLogo.svg"
+                alt="instagram"
+            /></a>
+          </li>
+          <li class="navbar-email">
+            <a href="https://www.facebook.com/GobernaciondeNortedeSantander"
+              ><img
+                src="https://raw.githubusercontent.com/Maxiferado/IconosGObNorteDeSantader/4d8654ca286c5ae7bbc99450a5e87a4afb3bc94c/IconosSvg/face.svg"
+                alt="facebook"
+            /></a>
+          </li>
+          <li class="navbar-email">
+            <a href="https://twitter.com/GoberNorte"
+              ><img
+                src="https://raw.githubusercontent.com/Maxiferado/IconosGObNorteDeSantader/4d8654ca286c5ae7bbc99450a5e87a4afb3bc94c/IconosSvg/twitter.svg"
+                alt="twitter"
+            /></a>
+          </li>
+          <li class="navbar-email">
+            <a href="https://www.youtube.com/@GobernacionNortedeSantander"
+              ><img
+                src="https://raw.githubusercontent.com/Maxiferado/IconosGObNorteDeSantader/4d8654ca286c5ae7bbc99450a5e87a4afb3bc94c/IconosSvg/youtube.svg"
+                alt="youtube"
+            /></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="bot">
+      <ul class="navButtons">
+        <li>
+          <a href=""
+            ><calcite-button
+              id="buttonNavegation"
+              icon-start="folder-plus"
+              label="Add new folder"
+              >Add layer</calcite-button
+            ></a
+          >
+        </li>
+        <li>
+          <a href=""
+            ><calcite-button
+              id="buttonNavegation"
+              icon-start="folder-plus"
+              label="Add new folder"
+              >Add layer</calcite-button
+            ></a
+          >
+        </li>
+        <li>
+          <a href=""
+            ><calcite-button
+              id="buttonNavegation"
+              icon-start="folder-plus"
+              label="Add new folder"
+              >Add layer</calcite-button
+            ></a
+          >
+        </li>
+        <li>
+          <a href=""
+            ><calcite-button
+              id="buttonNavegation"
+              icon-start="folder-plus"
+              label="Add new folder"
+              >Add layer</calcite-button
+            ></a
+          >
+        </li>
+        <li>
+            <a href=""
+            ><calcite-button
+              id="buttonNavegation"
+              icon-start="folder-plus"
+              label="Add new folder"
+              >Add layer</calcite-button
+            ></a
+          >         
+        </li>
+        <li>
+            <a href=""
+            ><calcite-button
+              id="buttonNavegation"
+              icon-start="folder-plus"
+              label="Add new folder"
+              >Add layer</calcite-button
+            ></a
+          >         
+        </li>
+        <li>
+            <a href=""
+            ><calcite-button
+              id="buttonNavegation"
+              icon-start="folder-plus"
+              label="Add new folder"
+              >Add layer</calcite-button
+            ></a
+          >         
+        </li>
+      </ul>
+    </div>
+  </nav>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/2.9.0/calcite.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://js.arcgis.com/calcite-components/2.9.0/calcite.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      :root {
+        --blue: #029bd7;
+        --purple: #564895;
+        --blue-king: #092355;
+        --orange: #ff6600;
+        --hard-blue: #1148a8;
+        --rose: #fe2672;
+        --gray: #b2b3b3;
+        --sm: 14px;
+        --md: 16px;
+        --lg: 18px;
+      }
+      body {
+        font-family: "Reem Kufi", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+      }
+      .tajetaContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .tarjeta {
+        width: 150px;
+        height: 300px;
+        margin: 10px;
+        box-shadow: 2px 2px 1px 0px rgba(100, 100, 100, 0.75);
+        align-content: center;
+        font-weight: bold;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: larger;
+      }
+      .t1 {
+        background-color: var(--blue-king);       
+      }
+      .t2 {
+        background-color: var(--blue);
+      }
+      .t3 {
+        background-color: var(--purple);
+      }
+      .t4 {
+        background-color: var(--rose);
+      }
+      .t1:hover {
+        background-image: url(../imports/patron1.png);
+        background-position: left;
+      }
+      .t2:hover {
+        background-image: url(../imports/patron2.png);
+      }
+      .t3:hover {
+        background-image: url(../imports/patron3.png);
+      }
+      .t4:hover {
+        background-image: url(../imports/patron4.png);
+      }
+    </style>
+  </head>
+  <div class="tajetaContainer">
+    <a href=""><div class="tarjeta t1">GeoVisor</div></a>
+    <a href=""><div class="tarjeta t2">GeoServicios</div></a>
+    <a href=""><div class="tarjeta t3">MapoTeca</div></a>
+    <a href=""><div class="tarjeta t4">Estadisticas</div></a>
+  </div>
+</html>
